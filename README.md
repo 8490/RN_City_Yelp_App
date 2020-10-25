@@ -1,1 +1,1 @@
-# RN_City_Yelp_App
+# RN_Random_restaurant_API

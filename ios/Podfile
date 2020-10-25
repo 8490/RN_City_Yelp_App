@@ -3,12 +3,12 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '10.0'
 
-target 'Cityyelp' do
+target 'API' do
   config = use_native_modules!
 
   use_react_native!(:path => config["reactNativePath"])
 
-  target 'CityyelpTests' do
+  target 'APITests' do
     inherit! :complete
     # Pods for testing
   end
@@ -23,10 +23,10 @@ target 'Cityyelp' do
   end
 end
 
-target 'Cityyelp-tvOS' do
-  # Pods for Cityyelp-tvOS
+target 'API-tvOS' do
+  # Pods for API-tvOS
 
-  target 'Cityyelp-tvOSTests' do
+  target 'API-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

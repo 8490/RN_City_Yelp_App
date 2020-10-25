@@ -52,9 +52,9 @@ INJECTED from /home/san/React-Native-Projects/RN_City_Yelp_App/android/app/src/d
 INJECTED from /home/san/React-Native-Projects/RN_City_Yelp_App/android/app/src/debug/AndroidManifest.xml:2:1-8:12
 INJECTED from /home/san/React-Native-Projects/RN_City_Yelp_App/android/app/src/debug/AndroidManifest.xml:2:1-8:12
 	package
-		ADDED from /home/san/React-Native-Projects/RN_City_Yelp_App/android/app/src/main/AndroidManifest.xml:2:3-25
+		ADDED from /home/san/React-Native-Projects/RN_City_Yelp_App/android/app/src/main/AndroidManifest.xml:2:3-20
 		INJECTED from /home/san/React-Native-Projects/RN_City_Yelp_App/android/app/src/main/AndroidManifest.xml
-		ADDED from /home/san/React-Native-Projects/RN_City_Yelp_App/android/app/src/main/AndroidManifest.xml:2:3-25
+		ADDED from /home/san/React-Native-Projects/RN_City_Yelp_App/android/app/src/main/AndroidManifest.xml:2:3-20
 		INJECTED from /home/san/React-Native-Projects/RN_City_Yelp_App/android/app/src/debug/AndroidManifest.xml
 	android:versionName
 		INJECTED from /home/san/React-Native-Projects/RN_City_Yelp_App/android/app/src/main/AndroidManifest.xml
@@ -112,7 +112,7 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /home/san/.
 	android:name
 		ADDED from /home/san/React-Native-Projects/RN_City_Yelp_App/android/app/src/main/AndroidManifest.xml:7:7-38
 		ADDED from /home/san/React-Native-Projects/RN_City_Yelp_App/android/app/src/main/AndroidManifest.xml:7:7-38
-activity#com.cityyelp.MainActivity
+activity#com.api.MainActivity
 ADDED from /home/san/React-Native-Projects/RN_City_Yelp_App/android/app/src/main/AndroidManifest.xml:13:7-23:18
 	android:label
 		ADDED from /home/san/React-Native-Projects/RN_City_Yelp_App/android/app/src/main/AndroidManifest.xml:15:9-41
