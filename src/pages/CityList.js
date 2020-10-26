@@ -1,40 +1,80 @@
-import axios from "axios";
-import React, {useEffect, useState} from "react";
-import {SafeAreaView, View, Text, FlatList} from "react-native";
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+import { SafeAreaView, View, Text, FlatList, ActivityIndicator } from 'react-native';
 
-import {CityItem} from "../components"
+import { CityItem, SearchBar } from '../components'
+
+let originalList = []
 
 const CityList = (props) => {
+    const [isLoading, setLoading] = useState(false);
     const [cityList, setCityList] = useState([]);
 
-    // ASYNC AWAIT
+    // ASYNC-AWAIT 
     const fetchCityData = async () => {
-        const {data} = await axios.get("http://opentable.herokuapp.com/api/cities");
-        console.log(data);
+        setLoading(true);
+        const { data } = await axios.get("https://opentable.herokuapp.com/api/cities");
         setCityList(data.cities);
+        console.log(data);
+        originalList = [...data.cities];
+        setLoading(false);
     }
 
-    useEffect (() => {
+    useEffect(() => {
         fetchCityData();
     }, [])
 
-    const renderCities = ({item}) => <CityItem cityName={item} />
+    const renderCities = ({ item }) => {
+        return (
 
-    const renderSeperator = () => <View style={{borderWidth: 1, borderColor: "#e0e0e0"}} />
+               <CityItem
+                    cityName={item}
+                    onSelect={() => props.navigation.navigate('Restaurants', { selectedCity: item })}
+                />
+            
+        )
+    }
+
+    const renderSeperator = () => <View style={{ borderWidth: 1, borderColor: '#e0e0e0' }} />
+
+    function searchCity(search) {
+        const filteredCities = originalList.filter(city => {
+            const text = search.toUpperCase();
+            const cityName = city.toUpperCase();
+
+            return cityName.indexOf(text) > -1;
+        })
+
+        setCityList(filteredCities);
+    }
 
     return (
         <SafeAreaView>
-            <View>
-                <FlatList 
-                    keyExtractor={(_, index) => index.toString()}
-                    data={cityList}
-                    renderItem={renderCities}
-                    ItemSeparatorComponent={renderSeperator}
+            
+            <View >
+                <Text style={{ margin: 5, fontWeight: 'bold', fontSize: 30 }}>Cities</Text>
+                <SearchBar
+                    placeholder="Search a city..."
+                    onSearch={(value) => searchCity(value)}
                 />
+
+                {
+                    isLoading ?
+                        <View style={{alignSelf:"center"}}>
+                            <ActivityIndicator size="large" color="black" />
+                        </View>
+                        :
+                        <FlatList
+                            keyExtractor={(_, index) => index.toString()}
+                            data={cityList}
+                            renderItem={renderCities}
+                            ItemSeparatorComponent={renderSeperator}
+                        />
+                }
+                
             </View>
         </SafeAreaView>
     )
-
 }
 
-export {CityList};
+export { CityList };
